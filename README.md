@@ -20,6 +20,8 @@ to run on recent releases without modification.
 
  1. Clone the repository.
 
+ 1. Run prebuild.sh
+
  1. Build TreeMaker and its environment:
 
     ```bash
