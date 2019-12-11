@@ -1,3 +1,4 @@
+#target: treemaker
 FROM ubuntu:10.04
 MAINTAINER Andrew Kvalheim <Andrew@Kvalhe.im>
 
@@ -15,9 +16,9 @@ RUN apt-get update \
                              zip
 
 # Download wxWidgets source
-RUN curl --location \
-         http://downloads.sourceforge.net/project/wxwindows/2.6.4/wxGTK-2.6.4.tar.bz2 \
-    | tar --extract --bzip2 --directory /tmp
+#RUN curl -v --location http://downloads.sourceforge.net/project/wxwindows/2.6.4/wxGTK-2.6.4.tar.bz2 | tar --extract --bzip2 --directory /tmp
+COPY .cache/wxGTK-2.6.4.tar.bz2 /tmp
+RUN tar --extract --bzip2 --directory /tmp -f /tmp/wxGTK-2.6.4.tar.bz2
 
 # Work around wxWidgets bug #10883
 RUN curl 'http://trac.wxwidgets.org/changeset/61009/svn-wx?format=diff&new=61009' \
